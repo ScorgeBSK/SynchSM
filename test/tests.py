@@ -16,35 +16,42 @@
 # altered in between executions (unless preconditions are used).
 tests = [ 
         
-    {'description': '500 ms => PORTB: 0x01',
-    'steps': [ {'time': 500 } ],
+    {'description': '0 ms => PORTB: 0x01',
+        'steps': [ {'inputs': [('PINA', 0)], 'time': 0 } ],
     'expected': [('PORTB',1)],
     },
 
-    {'description': '1000 ms => PORTB: 0x02',
-    'steps': [ {'time': 500 } ],
-    'expected': [('PORTB',2)],
-    },
-
-    {'description': '2000 ms => PORTB: 0x04',
-    'steps': [ {'time': 1000 } ],
-    'expected': [('PORTB',4)],
-    },
-
-     {'description': '3000 ms => PORTB: 0x01',
-    'steps': [ {'time': 1000 } ],
+    {'description': 'PINA = 1 => PORTB: 0x01',
+        'steps': [ {'inputs': [('PINA', 1)], 'iteratons': 5 } ],
     'expected': [('PORTB',1)],
     },
 
-    {'description': '4000 ms => PORTB: 0x02',
-    'steps': [ {'time': 1000 } ],
+    {'description': 'PINA = 1, 300ms => PORTB: 0x01',
+        'steps': [ {'inputs': [('PINA', 0)], 'time': 300 } ],
+    'expected': [('PORTB',1)],
+    },
+
+    {'description': 'PINA = 0, => PORTB: 0x02',
+        'steps': [ {'inputs': [('PINA', 0)], 'iterations': 5} ],
     'expected': [('PORTB',2)],
     },
 
-    {'description': '5000 ms => PORTB: 0x04',
-    'steps': [ {'time': 1000 } ],
+    {'description': '600 ms => PORTB: 0x04',
+        'steps': [ {'inputs': [('PINA', 0)], 'time': 300 } ],
     'expected': [('PORTB',4)],
     },
+
+    {'description': '900 ms => PORTB: 0x02',
+        'steps': [ {'inputs': [('PINA', 0)], 'time': 300 } ],
+    'expected': [('PORTB',2)],
+    },
+
+     {'description': '1200 ms => PORTB: 0x01',
+        'steps': [ {'inputs': [('PINA', 0)], 'time': 300 } ],
+    'expected': [('PORTB',1)],
+    },
+
+
 
     ]
 
