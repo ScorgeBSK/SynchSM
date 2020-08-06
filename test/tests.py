@@ -16,92 +16,42 @@
 # altered in between executions (unless preconditions are used).
 tests = [ 
         
-    {'description': '0 ms => PORTB: 0x01',
-        'steps': [ {'inputs': [('PINA', 0)], 'time': 0 } ],
-    'expected': [('PORTB', 1)],
+    {'description': 'PINA: 0x00 => PORTC: 0x07 ',
+    'steps': [ {'inputs': [('PINA', 0x00)], 'iterations': 3 } ],
+    'expected': [('PORTC', 0x07)],
     },
 
-    {'description': 'PINA: 1 => PORTB: 0x01',
-        'steps': [ {'inputs': [('PINA', 1)], 'iterations': 5 } ],
-    'expected': [('PORTB', 1)],
+    {'description': 'PINA: 0x01 => PORTC: 0x08 ',
+    'steps': [ {'inputs': [('PINA', 0x01)], 'iterations': 3 } ],
+    'expected': [('PORTC', 0x08)],
     },
 
-    {'description': 'PINA: 0 => PORTB: 0x01',
-        'steps': [ {'inputs': [('PINA', 0)], 'iterations': 5 } ],
-    'expected': [('PORTB', 1)],
+    {'description': 'PINA: 0x01 => PORTC: 0x09 ',
+    'steps': [ {'inputs': [('PINA', 0x01)], 'iterations': 3 } ],
+    'expected': [('PORTC', 0x09)],
     },
 
-    {'description': 'PINA: 1 => PORTB: 0x01',
-        'steps': [ {'inputs': [('PINA', 1)], 'iterations': 5 } ],
-    'expected': [('PORTB', 1)],
+    {'description': 'PINA: 0x01 => PORTC: 0x09 ',
+    'steps': [ {'inputs': [('PINA', 0x01)], 'iterations': 3 } ],
+    'expected': [('PORTC', 0x09)],
     },
 
-    {'description': '300 ms => PORTB: 0x02',
-        'steps': [ {'inputs': [('PINA', 0)], 'time': 300 } ],
-    'expected': [('PORTB', 2)],
+    {'description': 'PINA: 0x02 => PORTC: 0x08 ',
+    'steps': [ {'inputs': [('PINA', 0x02)], 'iterations': 3 } ],
+    'expected': [('PORTC', 0x08)],
     },
 
-    {'description': 'PINA: 1 => PORTB: 0x02',
-        'steps': [ {'inputs': [('PINA', 1)], 'iterations': 5 } ],
-    'expected': [('PORTB', 2)],
+    {'description': 'PINA: 0x03 => PORTC: 0x00 ',
+    'steps': [ {'inputs': [('PINA', 0x03)], 'iterations': 3 } ],
+    'expected': [('PORTC', 0x00)],
     },
 
-    {'description': 'PINA: 0 => PORTB: 0x02',
-        'steps': [ {'inputs': [('PINA', 0)], 'iterations': 5 } ],
-    'expected': [('PORTB', 2)],
+    {'description': 'PINA: 0x02 => PORTC: 0x00 ',
+    'steps': [ {'inputs': [('PINA', 0x02)], 'iterations': 3 } ],
+    'expected': [('PORTC', 0x00)],
     },
 
-    {'description': 'PINA: 1 => PORTB: 0x02',
-        'steps': [ {'inputs': [('PINA', 1)], 'iterations': 5 } ],
-    'expected': [('PORTB', 2)],
-    },
-
-    {'description': '600 ms => PORTB: 0x04',
-        'steps': [ {'inputs': [('PINA', 0)], 'time': 300 } ],
-    'expected': [('PORTB', 4)],
-    },
-
-    {'description': 'PINA: 1 => PORTB: 0x04',
-        'steps': [ {'inputs': [('PINA', 1)], 'iterations': 5 } ],
-    'expected': [('PORTB', 4)],
-    },
-
-    {'description': 'PINA: 0 => PORTB: 0x04',
-        'steps': [ {'inputs': [('PINA', 0)], 'iterations': 5 } ],
-    'expected': [('PORTB', 4)],
-    },
-
-    {'description': 'PINA: 1 => PORTB: 0x04',
-        'steps': [ {'inputs': [('PINA', 1)], 'iterations': 5 } ],
-    'expected': [('PORTB', 4)],
-    },
-
-    {'description': '900 ms => PORTB: 0x02',
-        'steps': [ {'inputs': [('PINA', 0)], 'time': 300 } ],
-    'expected': [('PORTB', 2)],
-    },
-
-    {'description': 'PINA: 1 => PORTB: 0x02',
-        'steps': [ {'inputs': [('PINA', 1)], 'iterations': 5 } ],
-    'expected': [('PORTB', 2)],
-    },
-
-    {'description': 'PINA: 0 => PORTB: 0x02',
-        'steps': [ {'inputs': [('PINA', 0)], 'iterations': 5 } ],
-    'expected': [('PORTB', 2)],
-    },
-
-    {'description': 'PINA: 1 => PORTB: 0x02',
-        'steps': [ {'inputs': [('PINA', 1)], 'iterations': 5 } ],
-    'expected': [('PORTB', 2)],
-    },
-
-    {'description': '1200 ms => PORTB: 0x01',
-        'steps': [ {'inputs': [('PINA', 0)], 'time': 300 } ],
-    'expected': [('PORTB', 1)],
-    },
-
-    ]
+]
 
 # Optionally you can add a set of "watch" variables these need to be global or static and may need
 # to be scoped at the function level (for static variables) if there are naming conflicts. The 
