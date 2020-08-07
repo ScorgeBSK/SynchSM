@@ -70,14 +70,12 @@ void tick(){
                 case init:
                         break;
                 case increment:
-			while(counter < 10) { counter++; }
 			output++;
 			if(output > 9){
 				output = 9;
 			}
                         break;
                 case decrement:
-			while(counter < 10) { counter++; }
 			output--;
 			if(output < 0){
 				output = 0;
@@ -101,11 +99,15 @@ int main(void) {
     /* Insert DDR and PORT initializations */
     DDRA = 0x00; PORTA = 0xFF;
     DDRB = 0xFF; PORTB = 0x07;
-    TimerSet(100);	
+    TimerSet(100);
+    TimerOn();
+
     state = start;
     /* Insert your solution below */
     while (1) {
 	tick();
+	while(!TimerFlag) {};
+	TimerFlag = 0;
     }
     return 1;
 }
